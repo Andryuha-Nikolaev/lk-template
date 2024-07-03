@@ -3,6 +3,7 @@
 interface FetchDataOptions {
   method?: string
   body?: object
+  cookies?: string
 }
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_API_URL
@@ -16,7 +17,11 @@ export const fetchData = async <T>(
     method: options.method ?? "GET",
 
     body: JSON.stringify(options.body),
-
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+      Cookie: options.cookies || "",
+    },
     cache: "no-cache",
   })
 

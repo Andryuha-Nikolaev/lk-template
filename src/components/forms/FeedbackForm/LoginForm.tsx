@@ -23,15 +23,10 @@ import { useRouter } from "next/navigation"
 const LoginForm = () => {
   const methods = useForm()
   const {
-    reset,
-    setValue,
     handleSubmit,
     formState: { errors },
   } = methods
 
-  const [isOpenModal, setIsOpenModal] = useState(false)
-  const [modalTitle, setModalTitle] = useState("")
-  const [modalText, setModalText] = useState("")
   const [isLoading, setIsLoading] = useState(false)
 
   const addCookies = (remember: boolean, token: string) => {
@@ -58,11 +53,10 @@ const LoginForm = () => {
   const onSubmit = (data: Record<string, string | boolean>) => {
     setIsLoading(true)
 
-    console.log(data)
-
     sendForm<{ token: string }>("login", data)
       .then((res) => {
         addCookies(!!data.remember_me, res.token)
+        router.replace("/account")
       })
       .catch((error) => {
         console.error(error)
