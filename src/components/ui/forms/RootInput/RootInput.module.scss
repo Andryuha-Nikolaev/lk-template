@@ -1,0 +1,38 @@
+@import "src/style/vars";
+
+.label {
+  width: 100%;
+  position: relative;
+}
+
+.input {
+  font-size: 14px;
+  padding: 16px 20px;
+  height: 50px;
+  width: 100%;
+  position: relative;
+  border: 1px solid $white;
+  border-radius: 10px !important;
+  background-color: $light-gray;
+  caret-color: #3567ff;
+
+  &::placeholder {
+    color: $dark-gray;
+    opacity: 1;
+  }
+
+  &.error {
+    color: #b50000 !important;
+    &::placeholder {
+      color: #b50000 !important;
+    }
+  }
+}
+
+.error-message {
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  font-size: 10px;
+  color: #b50000;
+}

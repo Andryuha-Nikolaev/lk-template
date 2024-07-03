@@ -1,0 +1,31 @@
+@import "src/style/vars";
+
+.block {
+  @media screen and (min-width: $mobile) {
+    padding-top: 50px;
+  }
+
+  @media screen and (min-width: $desk_sm) {
+    padding-top: 70px;
+  }
+}
+
+.wrap {
+  padding: 40px 30px;
+  background-image: url(../../../../assets/images/feedback/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 82% top;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+
+  @media screen and (min-width: $tablet) {
+    padding: 50px 35px;
+    background-position: 88% bottom;
+    background-size: 120%;
+  }
+  @media screen and (min-width: $desk_sm) {
+    padding: 100px 35px;
+    background-size: cover;
+  }
+}

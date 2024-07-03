@@ -1,0 +1,8 @@
+@import "src/style/vars";
+
+.header {
+  background-color: $white;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+}
