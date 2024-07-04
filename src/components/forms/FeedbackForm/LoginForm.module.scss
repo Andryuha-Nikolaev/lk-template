@@ -27,3 +27,23 @@
     min-width: 150px;
   }
 }
+
+.link {
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color $transition;
+  margin: 0 auto;
+  font-size: 16px;
+
+  @include hoverWrapper {
+    color: $link-color-hover;
+  }
+}
+
+.links {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

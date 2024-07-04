@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next"
 import { Noto_Sans_Display } from "next/font/google"
-import Header from "@/components/global/Header/Header"
 import "../style/globals.scss"
 
 const notoSans = Noto_Sans_Display({
@@ -29,8 +28,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={notoSans.variable}>
-        <Header />
-        <main>{children}</main>{" "}
+        <main>{children}</main>
       </body>
     </html>
   )

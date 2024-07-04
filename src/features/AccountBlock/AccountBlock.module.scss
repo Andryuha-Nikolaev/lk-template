@@ -1,0 +1,82 @@
+@import "src/style/vars";
+
+.wrap {
+  padding-bottom: 70px;
+}
+
+.tableWrap {
+  overflow: auto;
+}
+
+.needResponse {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  display: inline-block;
+  line-height: 1;
+  font-size: 20px;
+  border-radius: 50%;
+  margin-left: 4px;
+  color: $white;
+  text-align: center;
+}
+
+.row {
+  overflow: visible;
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: auto 100px 100px 100px 100px 160px;
+  padding: 10px;
+  gap: 5px;
+  border-bottom: 1px solid $light-blue;
+  transition: background-color $transition;
+  width: 100%;
+  min-width: 790px;
+
+  @include hoverWrapper {
+    background-color: #3567ff10;
+  }
+}
+
+.head {
+  background-color: #3567ff10;
+  .item {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.theme {
+  min-width: 180px;
+}
+
+.pag {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.pagItem {
+  width: 50px;
+  height: 50px;
+  @include flexCenter;
+  background-color: $white;
+  border: 1px solid $light-blue;
+  transition:
+    background-color $transition,
+    color $transition;
+
+  text-decoration: none;
+  border-radius: 50%;
+  @include hoverWrapper {
+    background-color: $light-blue;
+    color: $white;
+  }
+
+  &.active {
+    background-color: $light-blue;
+    color: $white;
+  }
+}

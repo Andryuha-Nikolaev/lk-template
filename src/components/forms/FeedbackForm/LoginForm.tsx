@@ -19,6 +19,7 @@ import classNames from "classnames"
 import { setCookie } from "cookies-next"
 import { sendForm } from "@/api/forms/sendForm"
 import { useRouter } from "next/navigation"
+import Link from "next/link"
 
 const LoginForm = () => {
   const methods = useForm()
@@ -56,7 +57,6 @@ const LoginForm = () => {
     sendForm<{ token: string }>("login", data)
       .then((res) => {
         addCookies(!!data.remember_me, res.token)
-        router.replace("/account")
       })
       .catch((error) => {
         console.error(error)
@@ -64,6 +64,7 @@ const LoginForm = () => {
       })
       .finally(() => {
         setIsLoading(false)
+        router.replace("/account")
       })
   }
 
@@ -122,6 +123,11 @@ const LoginForm = () => {
           </>
         </FormWrapper>
       </FormProvider>
+      <div className={s.links}>
+        <Link className={s.link} href="/restore-password">
+          Забыли пароль?
+        </Link>
+      </div>
     </div>
   )
 }

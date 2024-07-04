@@ -37,7 +37,11 @@ export async function GET(req: Request) {
     })
   }
 
-  const currentUser: UserType = { login: user.login }
+  const currentUser: UserType = {
+    login: user.login,
+    notifications: user.notifications,
+    tasks: user.tasks,
+  }
 
   return NextResponse.json(currentUser)
 }

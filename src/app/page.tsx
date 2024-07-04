@@ -1,6 +1,7 @@
 import LoginBlock from "@/features/LoginBlock/LoginBlock"
 import { redirect } from "next/navigation"
 import { getUser } from "@/api/user/getUser"
+import Header from "@/components/global/Header/Header"
 
 export default async function Home() {
   const user = await getUser()
@@ -9,5 +10,10 @@ export default async function Home() {
     redirect("/account")
   }
 
-  return <LoginBlock />
+  return (
+    <>
+      <Header />
+      <LoginBlock />
+    </>
+  )
 }

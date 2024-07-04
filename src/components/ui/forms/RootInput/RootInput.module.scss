@@ -1,5 +1,9 @@
 @import "src/style/vars";
 
+.wrap {
+  position: relative;
+}
+
 .label {
   width: 100%;
   position: relative;
@@ -11,7 +15,7 @@
   height: 50px;
   width: 100%;
   position: relative;
-  border: 1px solid $white;
+  border: 2px solid $white;
   border-radius: 10px !important;
   background-color: $light-gray;
   caret-color: #3567ff;
@@ -35,4 +39,18 @@
   left: 20px;
   font-size: 10px;
   color: #b50000;
+}
+
+.password-icon {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 16px;
+  height: 13px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  height: 100%;
+  width: 30px;
 }

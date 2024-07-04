@@ -16,6 +16,7 @@
   border-radius: 10px;
 
   &.var1 {
+    color: $white;
     background-color: $light-blue;
 
     @include hoverWrapper {
