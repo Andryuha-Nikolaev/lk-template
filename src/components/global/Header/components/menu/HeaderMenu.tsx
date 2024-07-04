@@ -12,7 +12,7 @@ import avatarImage from "./images/user.png"
 
 const tabs = [
   { value: "/notifications", label: "Уведомления" },
-  { value: "/account", label: "Обращения" },
+  { value: "/account", q: "?status=all", label: "Обращения" },
 ]
 
 const HeaderMenu = ({ user }: { user: UserType }) => {
@@ -27,7 +27,7 @@ const HeaderMenu = ({ user }: { user: UserType }) => {
           return (
             <Link
               className={classNames(s.tab, isActive && s.active)}
-              href={item.value}
+              href={`${item.value}${item.q && item.q}`}
               key={`header-tab-${item.label}`}
             >
               {item.label}
