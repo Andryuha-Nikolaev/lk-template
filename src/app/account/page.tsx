@@ -17,8 +17,11 @@ export default async function Account({ searchParams }: Props) {
   const urlSearchParams = new URLSearchParams(searchParams)
   const status = urlSearchParams.get("status") || "all"
   const page = urlSearchParams.get("page") || "1"
+  const search = urlSearchParams.get("search") || ""
 
-  const filtetredTasks = user.tasks.filter((item) =>
+  let tasks = user.tasks
+
+  tasks = tasks.filter((item) =>
     status === "open"
       ? item.status === "in_progress" || item.status === "registred"
       : status === "close"
@@ -27,13 +30,20 @@ export default async function Account({ searchParams }: Props) {
           ? item.status === "pending_approval" || item.status === "completed"
           : item
   )
+  if (search) {
+    tasks = tasks.filter((item) =>
+      item.theme.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+    )
+  }
 
-  const tasks = filtetredTasks.slice(+page * 10 - 10, +page * 10)
+  const length = tasks.length
+
+  tasks = tasks.slice(+page * 10 - 10, +page * 10)
 
   return (
     <div>
       <Header user={user} />
-      <AccountBlock tasks={tasks} tasksLength={filtetredTasks.length} />
+      <AccountBlock tasks={tasks} tasksLength={length} />
     </div>
   )
 }

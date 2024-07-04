@@ -87,6 +87,7 @@ const AccountBlock = ({
             })}
           </div>
         </div>
+        {!tasksLength && <p>По Вашему запросу ничего не найдено</p>}
         {tasksLength > 10 && (
           <div className={s.pag}>
             {pagArr.map((item) => {

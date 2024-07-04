@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import s from "./AccountMenu.module.scss"
 import Link from "next/link"
 import classNames from "classnames"
@@ -20,35 +20,60 @@ const tabs = [
 ]
 
 const AccountMenu = () => {
-  const [value, setValue] = useState("")
-
   const searchParams = useSearchParams()
   const pathname = usePathname()
   const router = useRouter()
 
+  const search = searchParams.get("search") || ""
+
+  const [value, setValue] = useState(search)
+
   const isAccount = pathname === "/account"
   const status = isAccount ? searchParams.get("status") || "all" : ""
+
+  const handleSearch = () => {
+    const trimValue = value.trim()
+
+    setValue(trimValue)
+    if (trimValue) {
+      router.push(`/account?search=${trimValue}`)
+    }
+  }
+
+  useEffect(() => {
+    setValue(search)
+  }, [search])
 
   return (
     <div className={s.wrap}>
       <form
         onSubmit={(e) => {
           e.preventDefault()
+          handleSearch()
         }}
       >
         {isAccount ? (
           <label className={s.label}>
-            <span className={s.search}>
+            <button type="submit" className={s.search}>
               <SearchIcon />
-            </span>
+            </button>
             <input
               value={value}
               onChange={(e) => setValue(e.target.value)}
               className={s.input}
             ></input>
-            <span onClick={() => setValue("")} className={s.close}>
+            <button
+              type="button"
+              onClick={() => {
+                if (value) {
+                  setValue("")
+                  router.push(`/account`)
+                }
+              }}
+              className={s.close}
+            >
               <CloseIcon />
-            </span>
+            </button>
           </label>
         ) : (
           <button
