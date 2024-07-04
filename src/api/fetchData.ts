@@ -6,7 +6,8 @@ interface FetchDataOptions {
   cookies?: string
 }
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_API_URL
+const baseUrl =
+  process.env.NEXT_PUBLIC_BASE_API_URL || "https://itilium.vercel.app/api"
 
 export const fetchData = async <T>(
   path: string,
