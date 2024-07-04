@@ -221,7 +221,7 @@ export const users: ApiUserType[] = [
     login: "fedorov",
     password: "222bbb",
     token: "fedorovtesttoken",
-    notifications: 5,
+    notifications: 12,
     tasks: [
       {
         theme: "Электронная почта 2",
