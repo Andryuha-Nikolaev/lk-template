@@ -1,0 +1,90 @@
+@import "src/style/vars";
+
+.wrap {
+  padding-bottom: 70px;
+}
+
+.text {
+  color: $dark-gray;
+}
+
+.title {
+  font-weight: 600;
+  margin: 5px 0 10px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+  background-color: $white;
+  box-shadow: $box-shadow;
+  border-radius: 10px;
+  padding: 20px 10px;
+  margin-bottom: 35px;
+
+  @media screen and (min-width: $tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.right {
+  @media screen and (min-width: $tablet) {
+    min-width: 300px;
+  }
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.questions {
+  margin-top: 35px;
+  padding: 20px 10px;
+  background-color: $white;
+  box-shadow: $box-shadow;
+  border-radius: 10px;
+}
+
+.additional {
+  background-color: $white;
+  box-shadow: $box-shadow;
+  border-radius: 10px;
+
+  overflow: hidden;
+  transition: height $transition;
+}
+
+.additionalContent {
+  margin: 20px 10px;
+}
+
+.openBtn {
+  background-color: $light-blue;
+  position: absolute;
+  top: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: background-color $transition;
+  border: none;
+  width: 30px;
+  height: 30px;
+  span {
+    display: block;
+    transition: transform $transition;
+  }
+
+  @include hoverWrapper {
+    background-color: $link-color-hover;
+  }
+
+  &.open {
+    span {
+      transform: rotate(-180deg);
+    }
+  }
+}

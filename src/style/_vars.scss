@@ -1,0 +1,167 @@
+// color
+$black: #010101;
+$medium-black: #131110;
+$opacity-black: rgba(91, 90, 90, 0.8);
+$white: #fff;
+$light-blue: #3567ff;
+$medium-blue: #2149c2;
+$dark-blue: #1034a1;
+$dark-gray: #727272;
+$medium-gray: #dbdbdb;
+$light-gray: #eae8e8;
+$medium-green: #69b544;
+$box-shadow: 0 0 4px 0 rgba(31, 46, 58, 0.2);
+
+// texts
+$color-text-primary: $black;
+
+// links
+$link-color: $black;
+$link-color-hover: $medium-blue;
+$link-color-focus: $dark-gray;
+
+// background
+
+// modal
+$color-modal-overlay: $opacity-black;
+
+// breakpoints
+$mobile_sm: 370px;
+$mobile: 576px;
+$tablet: 720px;
+$desk_sm: 1024px;
+$desk_md: 1280px;
+$desk_lg: 1440px;
+$desk_max: 1900px;
+
+// transition
+$transition-duration: 0.2s;
+$transition-animation: ease-in-out;
+$transition: $transition-duration $transition-animation;
+
+// z-index
+
+// fonts
+$primary-font: var(--noto-sans-font), sans-serif;
+
+// mixins
+@mixin hoverWrapper {
+  @media screen and (min-width: $desk_md) {
+    &:hover {
+      @content;
+    }
+  }
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin activeWrapper {
+  @media screen and (min-width: $desk_md) {
+    &:active {
+      @content;
+    }
+  }
+  @media (hover: hover) {
+    &:active {
+      @content;
+    }
+  }
+}
+
+@mixin flexCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin visibilityHidden($isOpen) {
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity $transition,
+    visibility $transition;
+
+  @if $isOpen {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@mixin noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin text-h1 {
+  font-family: $primary-font;
+  font-size: 46px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: uppercase;
+  @media screen and (min-width: $tablet) {
+    font-size: 58px;
+  }
+  @media screen and (min-width: $desk_sm) {
+    font-size: 80px;
+  }
+}
+
+@mixin text-h2 {
+  font-family: $primary-font;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-transform: uppercase;
+  @media screen and (min-width: $tablet) {
+    font-size: 32px;
+  }
+  @media screen and (min-width: $desk_sm) {
+    font-size: 36px;
+  }
+}
+
+@mixin text-h3 {
+  font-family: $primary-font;
+  font-weight: 500;
+  line-height: 1.3;
+  font-size: 20px;
+  text-transform: uppercase;
+  @media screen and (min-width: $tablet) {
+    font-size: 22px;
+  }
+}
+
+@mixin text-lg {
+  font-weight: 500;
+  font-size: 16px;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 18px;
+  }
+}
+
+@mixin text-md {
+  font-weight: 400;
+  font-size: 14px;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 16px;
+  }
+}
+
+@mixin text-sm {
+  font-weight: 400;
+  font-size: 12px;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 14px;
+  }
+}

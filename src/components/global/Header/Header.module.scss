@@ -1,0 +1,18 @@
+@import "src/style/vars";
+
+.header {
+  background-color: $white;
+
+  display: flex;
+  align-items: center;
+}
+
+.wrap {
+  display: flex;
+  min-height: 70px;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (min-width: $tablet) {
+  }
+}

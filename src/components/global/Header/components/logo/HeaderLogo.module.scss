@@ -1,0 +1,11 @@
+@import "src/style/vars";
+
+.logo {
+  color: $medium-green;
+  font-size: 18px;
+  text-decoration: none;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 28px;
+  }
+}

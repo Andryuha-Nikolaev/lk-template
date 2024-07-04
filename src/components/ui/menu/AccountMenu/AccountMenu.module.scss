@@ -1,0 +1,128 @@
+@import "src/style/vars";
+
+.wrap {
+  padding: 20px 0;
+  display: flex;
+
+  gap: 10px;
+
+  flex-direction: column;
+
+  @media screen and (min-width: $tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  form {
+    width: 100%;
+
+    @media screen and (min-width: $tablet) {
+      max-width: 340px;
+    }
+  }
+}
+
+.label {
+  width: 100%;
+  position: relative;
+}
+
+.search,
+.close {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  @include flexCenter;
+  cursor: pointer;
+
+  svg {
+    path {
+      transition: fill $transition;
+    }
+  }
+
+  @include hoverWrapper {
+    svg {
+      path {
+        fill: $link-color-hover;
+      }
+    }
+  }
+}
+
+.search {
+  left: 10px;
+}
+
+.close {
+  right: 10px;
+}
+
+.input {
+  width: 100%;
+  height: 50px;
+  background-color: $white;
+  border-radius: 10px;
+  box-shadow: $box-shadow;
+  border: none;
+  padding: 5px 40px;
+}
+
+.tabs {
+  display: flex;
+
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media screen and (min-width: $mobile) {
+    flex-wrap: nowrap;
+  }
+
+  @media screen and (min-width: $tablet) {
+  }
+}
+
+.tab {
+  transition:
+    background-color $transition,
+    color $transition,
+    border $transition;
+  min-height: 40px;
+  height: 100%;
+  width: 100%;
+  // max-width: 300px;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 1;
+  padding: 16px;
+  border-radius: 10px;
+  display: flex;
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: $white;
+  text-decoration: none;
+  box-shadow: $box-shadow;
+  @include hoverWrapper {
+    background-color: $light-blue;
+    color: $white;
+  }
+
+  &.active {
+    background-color: $light-blue;
+    color: $white;
+  }
+
+  @media screen and (min-width: $mobile_sm) {
+    width: calc(50% - 5px);
+  }
+
+  @media screen and (min-width: $mobile) {
+    width: fit-content;
+  }
+}
+
+.back {
+  width: fit-content !important;
+}

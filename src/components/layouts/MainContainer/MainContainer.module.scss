@@ -1,0 +1,15 @@
+@import "src/style/vars";
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+
+  @media screen and (min-width: $mobile_sm) {
+  }
+
+  @media screen and (min-width: $tablet) {
+  }
+}

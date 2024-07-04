@@ -1,0 +1,56 @@
+@import "src/style/vars";
+
+.wrap {
+  position: relative;
+}
+
+.label {
+  width: 100%;
+  position: relative;
+}
+
+.input {
+  font-size: 14px;
+  padding: 16px 20px;
+  height: 50px;
+  width: 100%;
+  position: relative;
+  border: 2px solid $white;
+  border-radius: 10px !important;
+  background-color: $light-gray;
+  caret-color: #3567ff;
+
+  &::placeholder {
+    color: $dark-gray;
+    opacity: 1;
+  }
+
+  &.error {
+    color: #b50000 !important;
+    &::placeholder {
+      color: #b50000 !important;
+    }
+  }
+}
+
+.error-message {
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  font-size: 10px;
+  color: #b50000;
+}
+
+.password-icon {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 16px;
+  height: 13px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  height: 100%;
+  width: 30px;
+}
